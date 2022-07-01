@@ -25,7 +25,8 @@ export default class Login extends Component {
     }
   }
 
-  login = async () => {
+  login = async (event) => {
+    event.preventDefault();
     const { userName } = this.state;
     this.setState({ isLoading: true });
     await createUser({ name: userName });
@@ -38,8 +39,8 @@ export default class Login extends Component {
     return (
       <div data-testid="page-login">
 
-        {isLoading ? <Loading /> : null}
-        {loaded ? <Redirect to="/search" /> : null}
+        {isLoading && <Loading />}
+        {loaded && <Redirect to="/search" />}
 
         <form>
           <input
