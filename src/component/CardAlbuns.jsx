@@ -5,11 +5,10 @@ import { Link } from 'react-router-dom';
 export default class CardAlbuns extends Component {
   render() {
     const { api, inputUser } = this.props;
-    console.log(inputUser);
     return (
       <div>
-        {api.length
-          ? (<>
+        {api.length === 0 ? <p>Nenhum álbum foi encontrado</p> : (
+          <>
             <p>{ `Resultado de álbuns de: ${inputUser}`}</p>
             <ul>
               {api.map((album) => (
@@ -23,8 +22,8 @@ export default class CardAlbuns extends Component {
                 </li>
               ))}
             </ul>
-          </>)
-          : <p>Nenhum álbum foi encontrado</p> }
+          </>
+        ) }
       </div>
     );
   }
