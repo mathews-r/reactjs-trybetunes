@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
 
 export default class MusicCard extends Component {
@@ -8,24 +8,36 @@ export default class MusicCard extends Component {
     super();
 
     this.state = {
-      check: '',
+      isLoading: false,
+      getFavorites: [],
     };
+  }
+
+  componentDidMount() {
+    this.checkFavorite();
   }
 
   checkFavorite = async () => {
     const { apiMusic } = this.props;
-    this.setState({ check: true });
+
+    this.setState({ isLoading: true });
     await addSong(apiMusic);
-    this.setState({ check: false });
+    const getFav = await getFavoriteSongs();
+    this.setState({ isLoading: false, getFavorites: getFav });
+  }
+
+  filterFavorites = (musicId) => {
+    const { getFavorites } = this.state;
+    return getFavorites.some((music) => music.trackId === musicId);
   }
 
   render() {
     const { apiMusic } = this.props;
-    const { check } = this.state;
+    const { isLoading } = this.state;
 
     return (
       <section>
-        { check && <Loading /> }
+        { isLoading && <Loading /> }
         <ul>
           {apiMusic.slice(1).map((music) => (
             <li key={ music.trackNumber }>
@@ -39,17 +51,18 @@ export default class MusicCard extends Component {
                 <code>audio</code>
                 .
               </audio>
-              <label htmlFor="checkbox-favorite">
+              <label htmlFor={ music.trackId }>
                 Favorita
                 <input
                   type="checkbox"
-                  name="checkbox-favorite"
+                  name={ music.trackId }
+                  id={ music.trackId }
                   data-testid={ `checkbox-music-${music.trackId}` }
                   onChange={ this.checkFavorite }
+                  checked={ this.filterFavorites(music.trackId) }
                 />
               </label>
             </li>
-
           ))}
         </ul>
       </section>
