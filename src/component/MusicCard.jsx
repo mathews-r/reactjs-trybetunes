@@ -18,10 +18,10 @@ export default class MusicCard extends Component {
   }
 
   checkFavorite = async () => {
-    const { apiMusic } = this.props;
+    const { musics } = this.props;
 
     this.setState({ isLoading: true });
-    await addSong(apiMusic);
+    await addSong(musics);
     const getFav = await getFavoriteSongs();
     this.setState({ isLoading: false, getFavorites: getFav });
   }
@@ -32,14 +32,14 @@ export default class MusicCard extends Component {
   }
 
   render() {
-    const { apiMusic } = this.props;
+    const { musics } = this.props;
     const { isLoading } = this.state;
 
     return (
       <section>
         { isLoading && <Loading /> }
         <ul>
-          {apiMusic.slice(1).map((music) => (
+          {musics.slice(1).map((music) => (
             <li key={ music.trackNumber }>
 
               {music.trackName}
@@ -59,7 +59,6 @@ export default class MusicCard extends Component {
                   id={ music.trackId }
                   data-testid={ `checkbox-music-${music.trackId}` }
                   onChange={ this.checkFavorite }
-                  checked={ this.filterFavorites(music.trackId) }
                 />
               </label>
             </li>
@@ -71,7 +70,7 @@ export default class MusicCard extends Component {
 }
 
 MusicCard.propTypes = {
-  apiMusic: PropTypes.shape({
+  musics: PropTypes.shape({
     slice: PropTypes.func,
     map: PropTypes.func,
     collectionId: PropTypes.number,

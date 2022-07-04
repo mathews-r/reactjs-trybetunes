@@ -9,7 +9,7 @@ export default class Album extends Component {
     super();
 
     this.state = {
-      apiMusic: [],
+      musics: [],
       artist: '',
       album: '',
     };
@@ -24,18 +24,18 @@ export default class Album extends Component {
     const api = await getMusics(id);
     this.setState({ artist: api[0].artistName,
       album: api[0].collectionName,
-      apiMusic: api });
+      musics: api });
   }
 
   render() {
-    const { apiMusic, artist, album } = this.state;
+    const { musics, artist, album } = this.state;
     return (
       <div data-testid="page-album">
         <Header />
         <div className="artist-name" data-testid="artist-name">{artist}</div>
         <div className="album-artist" data-testid="album-name">
           {album}
-          <MusicCard apiMusic={ apiMusic } />
+          <MusicCard musics={ musics } />
         </div>
       </div>
     );
