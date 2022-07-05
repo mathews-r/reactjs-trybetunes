@@ -19,24 +19,21 @@ export default class MusicCard extends Component {
 
   favMusics = async () => {
     const favMusic = await getFavoriteSongs();
-    favMusic.forEach(({ trackId }) => {
-      this.setState(({ getFavorites }) => ({
-        getFavorites: { ...getFavorites, [trackId]: true },
-      }));
-    });
-  }
+    console.log(favMusic);
+    this.setState({ getFavorites: favMusic });
+  };
 
-  checkFavorite = async () => {
-    const { musics } = this.props;
-    this.setState({ isLoading: true,
-      getFavorites: '' });
-    await addSong(musics);
+  checkFavorite = async (music) => {
+    this.setState({ isLoading: true });
+    await addSong(music);
     this.setState({ isLoading: false });
+
+    this.favMusics();
   }
 
   render() {
     const { musics } = this.props;
-    const { isLoading } = this.state;
+    const { isLoading, getFavorites } = this.state;
 
     return (
       <section>
@@ -62,7 +59,9 @@ export default class MusicCard extends Component {
                     name={ music.trackId }
                     id={ music.trackId }
                     data-testid={ `checkbox-music-${music.trackId}` }
-                    onChange={ this.checkFavorite }
+                    onChange={ () => this.checkFavorite(music) }
+                    checked={ getFavorites
+                      .some((favorite) => favorite.trackId === music.trackId) }
                   />
                 </label>
               </div>
