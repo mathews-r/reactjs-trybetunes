@@ -17,9 +17,12 @@ export default class MusicCard extends Component {
     this.favMusics();
   }
 
+  componentDidUpdate() {
+    this.favMusics();
+  }
+
   favMusics = async () => {
     const favMusic = await getFavoriteSongs();
-    console.log(favMusic);
     this.setState({ getFavorites: favMusic });
   };
 
