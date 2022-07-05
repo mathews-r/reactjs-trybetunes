@@ -1,4 +1,4 @@
-import PropTypes, { arrayOf } from 'prop-types';
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -30,6 +30,6 @@ export default class CardAlbuns extends Component {
 }
 
 CardAlbuns.propTypes = {
-  api: arrayOf.isRequired,
+  api: PropTypes.func.isRequired,
   inputUser: PropTypes.string.isRequired,
 };

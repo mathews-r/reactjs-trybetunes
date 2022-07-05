@@ -40,7 +40,7 @@ export default class MusicCard extends Component {
         { isLoading && <Loading /> }
         <ul>
           {musics.slice(1).map((music) => (
-            <li key={ music.trackNumber }>
+            <li key={ music.trackId }>
 
               {music.trackName}
               <audio data-testid="audio-component" src={ music.previewUrl } controls>

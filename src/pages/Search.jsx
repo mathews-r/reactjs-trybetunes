@@ -29,7 +29,8 @@ export default class Search extends Component {
   fetchAPI = async () => {
     const { inputUser } = this.state;
     this.setState({ isLoading: true });
-    this.setState({ api: await searchAlbumsAPI(inputUser) });
+    const returnAPI = await searchAlbumsAPI(inputUser);
+    this.setState({ api: returnAPI });
     this.setState({ isLoading: false, loaded: true });
   };
 
