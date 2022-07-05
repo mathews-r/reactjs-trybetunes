@@ -26,11 +26,12 @@ export default class Search extends Component {
     }
   }
 
-  fetchAPI = async () => {
+  fetchAPI = () => {
     const { inputUser } = this.state;
-    this.setState({ isLoading: true });
-    this.setState({ api: await searchAlbumsAPI(inputUser) });
-    this.setState({ isLoading: false, loaded: true });
+    this.setState({ isLoading: true }, async () => {
+      this.setState({ api: await searchAlbumsAPI(inputUser) });
+      this.setState({ isLoading: false, loaded: true });
+    });
   };
 
   render() {
