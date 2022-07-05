@@ -44,12 +44,12 @@ export default class MusicCard extends Component {
 
     return (
       <section>
-        <ul>
+        <div className="dad">
           { isLoading && <Loading /> }
           {musics.slice(1).map((music) => (
-            <li key={ music.trackId }>
+            <div key={ music.trackId } className="musics">
 
-              {music.trackName}
+              <p>{music.trackName}</p>
               <audio data-testid="audio-component" src={ music.previewUrl } controls>
                 <track kind="captions" />
                 O seu navegador não suporta o elemento
@@ -58,20 +58,22 @@ export default class MusicCard extends Component {
                 <code>audio</code>
                 .
               </audio>
-              <label htmlFor={ music.trackId }>
-                Favorita
-                <input
-                  type="checkbox"
-                  name={ music.trackId }
-                  id={ music.trackId }
-                  data-testid={ `checkbox-music-${music.trackId}` }
-                  onChange={ this.checkFavorite }
-                  checked={ getFavorites[music.trackId] }
-                />
-              </label>
-            </li>
+              <div className="tracks">
+                <p className="p2">Favorita</p>
+                <label htmlFor={ music.trackId }>
+                  <input
+                    type="checkbox"
+                    name={ music.trackId }
+                    id={ music.trackId }
+                    data-testid={ `checkbox-music-${music.trackId}` }
+                    onChange={ this.checkFavorite }
+                    checked={ getFavorites[music.trackId] }
+                  />
+                </label>
+              </div>
+            </div>
           ))}
-        </ul>
+        </div>
       </section>
     );
   }

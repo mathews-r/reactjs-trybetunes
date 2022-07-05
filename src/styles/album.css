@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+}
+
+.page-album {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.musics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 6px;
+}
+
+.dad {
+  justify-content: center;
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 10px;
+}
+
+.tracks {
+  display: flex;
+  justify-content: space-between;
+}
+
+.p2 {
+  margin-right: 5px;
+}
+
+.artist-name, .album-artist {
+  color: blue;
+  font-weight: 700;
+}

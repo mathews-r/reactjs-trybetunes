@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
 import Loading from '../component/Loading';
+import '../styles/login.css';
 
 export default class Login extends Component {
   constructor() {
@@ -37,13 +38,14 @@ export default class Login extends Component {
     const { isActive, isLoading, loaded } = this.state;
 
     return (
-      <div data-testid="page-login">
+      <section className="page-login" data-testid="page-login">
 
         {isLoading && <Loading />}
         {loaded && <Redirect to="/search" />}
-
-        <form>
+        <h1>Faça seu login</h1>
+        <form className="initial-form">
           <input
+            className="input-form-login"
             type="text"
             name="input-name"
             data-testid="login-name-input"
@@ -51,6 +53,7 @@ export default class Login extends Component {
             onChange={ this.saveName }
           />
           <button
+            id="btn-login"
             type="submit"
             name="button-login"
             data-testid="login-submit-button"
@@ -65,7 +68,7 @@ export default class Login extends Component {
 
         </form>
 
-      </div>
+      </section>
     );
   }
 }

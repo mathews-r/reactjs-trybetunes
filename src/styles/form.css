@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.form {
+  background-color: rgb(29, 117, 222);
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.input-form {
+  height: 30px;
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+.btn-search {
+  height: 30px;
+  font-size: 18px;
+  cursor: pointer;
+}

@@ -1,0 +1,59 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Hind+Siliguri:wght@300;400&family=Open+Sans:wght@300&family=Poppins:wght@300&display=swap');
+
+.result-search {
+  color: black;
+  display: flex;
+  justify-content: center;
+}
+
+.link-result {
+  color: inherit;
+  text-decoration: none;
+  text-align: center;
+}
+
+.div-result {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.albuns {
+  display: flex;
+  width: 200px;
+  height: 250px;
+  align-items: center;
+  justify-content: center;
+  margin: 4px
+}
+
+.albuns:hover {
+  transform: scale(1.1);
+}
+
+.information {
+  width: 190px;
+  height: 190px;
+  display: flex;
+  justify-content: center;
+}
+
+.artwork {
+  width: 160px;
+  padding: 5px;
+  height: 160px;
+}
+
+#p {
+  margin-top: 8px;
+  width: 100%;
+  text-align: center;
+  color: black;
+  font-weight: 700;
+}

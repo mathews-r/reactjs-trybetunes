@@ -3,6 +3,7 @@ import Header from '../component/Header';
 import Loading from '../component/Loading';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import CardAlbuns from '../component/CardAlbuns';
+import '../styles/form.css';
 
 export default class Search extends Component {
   constructor() {
@@ -37,30 +38,34 @@ export default class Search extends Component {
   render() {
     const { isActive, inputUser, api, isLoading, loaded } = this.state;
     return (
-      <div data-testid="page-search">
-        {isLoading ? <Loading /> : (
-          <>
-            <Header />
-            <form>
-              <input
-                type="text"
-                data-testid="search-artist-input"
-                placeholder="Pesquise sua banda"
-                onChange={ this.saveBand }
-              />
-              <button
-                type="button"
-                data-testid="search-artist-button"
-                disabled={ isActive }
-                onClick={ this.fetchAPI }
-              >
-                Pesquisar
-              </button>
-            </form>
-            { loaded ? <CardAlbuns api={ api } inputUser={ inputUser } /> : ''}
-          </>
-        )}
-      </div>
+      <>
+        <Header />
+        <section data-testid="page-search">
+          {isLoading ? <Loading /> : (
+            <>
+              <form className="form">
+                <input
+                  type="text"
+                  className="input-form"
+                  data-testid="search-artist-input"
+                  placeholder="Pesquise sua banda"
+                  onChange={ this.saveBand }
+                />
+                <button
+                  className="btn-search"
+                  type="button"
+                  data-testid="search-artist-button"
+                  disabled={ isActive }
+                  onClick={ this.fetchAPI }
+                >
+                  Pesquisar
+                </button>
+              </form>
+              { loaded ? <CardAlbuns api={ api } inputUser={ inputUser } /> : ''}
+            </>
+          )}
+        </section>
+      </>
     );
   }
 }

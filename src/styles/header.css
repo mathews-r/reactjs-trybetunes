@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Hind+Siliguri:wght@300;400&family=Open+Sans:wght@300&family=Poppins:wght@300&display=swap');
+
+.header {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 150px;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  padding: 6px;
+}
+
+.nav-menu {
+  display: flex;
+  font-size: 18px;
+  width: 500px;
+  justify-content: space-between;
+}
+
+a.link-menu {
+  color: inherit;
+  text-decoration: none;
+  border: 2px solid white;
+  border-radius: 20px;
+  padding: 6px;
+}
+
+a.link-menu:hover {
+  transform: scale(1.1);
+}
