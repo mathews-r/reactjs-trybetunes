@@ -14,31 +14,35 @@ export default class MusicCard extends Component {
   }
 
   componentDidMount() {
-    this.checkFavorite();
+    this.favMusics();
   }
 
-  checkFavorite = async () => {
+  favMusics = async () => {
+    const favMusic = await getFavoriteSongs();
+    favMusic.forEach(({ trackId }) => {
+      this.setState(({ getFavorites }) => ({
+        getFavorites: { ...getFavorites, [trackId]: true },
+      }));
+    });
+  }
+
+  checkFavorite = async ({ target: { name, checked } }) => {
     const { musics } = this.props;
-
-    this.setState({ isLoading: true });
-    await addSong(musics);
-    const getFav = await getFavoriteSongs();
-    this.setState({ isLoading: false, getFavorites: getFav });
-  }
-
-  filterFavorites = (musicId) => {
     const { getFavorites } = this.state;
-    return getFavorites.some((music) => music.trackId === musicId);
+    this.setState({ isLoading: true,
+      getFavorites: { ...getFavorites, [name]: checked } });
+    await addSong(musics);
+    this.setState({ isLoading: false });
   }
 
   render() {
     const { musics } = this.props;
-    const { isLoading } = this.state;
+    const { isLoading, getFavorites } = this.state;
 
     return (
       <section>
-        { isLoading && <Loading /> }
         <ul>
+          { isLoading && <Loading /> }
           {musics.slice(1).map((music) => (
             <li key={ music.trackId }>
 
@@ -59,6 +63,7 @@ export default class MusicCard extends Component {
                   id={ music.trackId }
                   data-testid={ `checkbox-music-${music.trackId}` }
                   onChange={ this.checkFavorite }
+                  checked={ getFavorites[music.trackId] }
                 />
               </label>
             </li>
