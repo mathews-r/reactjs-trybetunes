@@ -30,6 +30,6 @@ export default class CardAlbuns extends Component {
 }
 
 CardAlbuns.propTypes = {
-  api: PropTypes.func.isRequired,
+  api: PropTypes.arrayOf.isRequired,
   inputUser: PropTypes.string.isRequired,
 };
