@@ -3,23 +3,23 @@
 }
 
 .page-album {
-  display: flex;
-  justify-content: center;
   align-items: center;
+  display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .musics {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   margin: 6px;
 }
 
 .dad {
-  justify-content: center;
   display: flex;
   flex-flow: row wrap;
+  justify-content: center;
   margin-top: 10px;
 }
 

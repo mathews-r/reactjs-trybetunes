@@ -10,7 +10,7 @@ export default class CardAlbuns extends Component {
       <section className="result-search">
         {api.length === 0 ? <p>Nenhum álbum foi encontrado</p> : (
           <div className="div-result">
-            <p id="p">{ `Resultado de álbuns de: ${inputUser}`}</p>
+            <p className="p">{ `Resultado de álbuns de: ${inputUser}`}</p>
             {api.map((album) => (
               <div key={ album.collectionId } className="albuns">
                 <div className="information">

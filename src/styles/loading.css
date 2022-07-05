@@ -1,8 +1,8 @@
-#loading {
+.loading {
   background-color: white;
   color: black;
+  height: 100%;
   position: absolute;
   text-align: center;
   width: 100%;
-  height: 100%;
 }

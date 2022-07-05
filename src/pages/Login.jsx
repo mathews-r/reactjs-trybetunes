@@ -53,7 +53,7 @@ export default class Login extends Component {
             onChange={ this.saveName }
           />
           <button
-            id="btn-login"
+            className="btn-login"
             type="submit"
             name="button-login"
             data-testid="login-submit-button"

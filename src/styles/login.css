@@ -3,23 +3,23 @@
   margin: 0;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Hind+Siliguri:wght@300;400&family=Open+Sans:wght@300&family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Hind+Siliguri:wght@300;400&family=Open+Sans:wght@300&family=Poppins:wght@300&display=swap') ;
 
 .page-login {
-  display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
   background-color: rgb(29, 117, 222);
   color: white;
+  display: flex;
+  flex-direction: column;
+  font-family: Poppins , sans-serif;
   height: 200px;
-  font-family: 'Poppins', sans-serif;
+  justify-content: center;
 }
 
 .input-form-login {
   margin-right: 5px;
 }
 
-#btn-login {
+.btn-login {
   cursor: pointer;
 }
