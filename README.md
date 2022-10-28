@@ -2,6 +2,9 @@
 
 Neste criei o TrybeTunes, uma aplicação capaz de reproduzir músicas das mais variadas bandas e artistas.
 
+- Link da aplicação: https://main.d3ar117mfkuuwa.amplifyapp.com/
+- Hospedado na AWS
+
 ## ⚙️ Funcionalidades
 
 ✅ Fazer login;
@@ -29,6 +32,12 @@ Neste criei o TrybeTunes, uma aplicação capaz de reproduzir músicas das mais 
 - React Router;
 
 ## :computer: Layout Desenvolvido
+
+![image](https://user-images.githubusercontent.com/83560101/198659936-0143c1ae-e5d0-4db9-a202-9004d796c36b.png)
+![image](https://user-images.githubusercontent.com/83560101/198659102-022893d4-489c-4ea0-83d1-db39ce4ffec2.png)
+![image](https://user-images.githubusercontent.com/83560101/198658499-80d5e87b-bec9-46ad-8aae-08e7fdd583f4.png)
+![image](https://user-images.githubusercontent.com/83560101/198657568-e470e734-34a2-40a0-95ab-855717b0a818.png)
+
 
 ## 📁 Acessar Projeto Localmente
 
